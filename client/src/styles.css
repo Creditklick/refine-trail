@@ -1,0 +1,53 @@
+ *{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  
+   .slider {
+    margin:20px 20px;
+    overflow:"hidden";
+    padding: 1rem 1rem;
+  }
+  
+  .slider img {
+    width: 50%;
+    border-radius:3px;
+  }
+  
+  .react-multi-carousel-list {
+  padding: 0rem 0 1rem 0;
+  }
+  
+  .custom-dot-list-style button{
+  border: none;
+  background: rgb(64, 176, 241);
+  }
+  .react-multi-carousel-dot.react-multi-carousel-dot--active button{
+  background: rgb(56, 163, 252) !important;
+  } 
+
+  .parallaxdiv{
+
+
+    background-image: url("./assets/img/bg-map.png");
+
+    /* Set a specific height */
+    min-height: 300px; 
+  
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.parallaxdiv::after{
+    content: '';
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    background: inherit;
+    mask: linear-gradient(to bottom, white 40%, transparent); /* Top image is masked with a gradient */
+}
