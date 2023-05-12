@@ -13,7 +13,7 @@ import Payment from './pages/Refine/Payment';
 import Confirm from './pages/Refine/Confirm';
 import Updatehome from './pages/Update/Updatehome';
 import Update from './pages/Update/Update';
-import PayoutT from './pages/Refine/payoutT';
+import PayoutN from './pages/Refine/PayoutN';
 const Main = () => {
   
   return (
@@ -29,7 +29,8 @@ const Main = () => {
   
 
   <Route path="/queries" exact element={<Payout/>}/>
-  <Route path="/queriesT" exact element={ <PayoutT />}/>
+  <Route path="/queriesN" exact element={ <PayoutN/> }/>
+
 
  
   <Route path="/payments" exact element={<Payment/>}/>
