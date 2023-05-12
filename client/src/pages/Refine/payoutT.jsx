@@ -29,11 +29,11 @@ const PayoutT = () => {
 
 const handleSubmit = (e) => {
     e.preventDefault();
-    if (validate()) {
-      console.log('Form submitted');
-      navigate('/payments')
-    } else {
+    if (!validate()) {
       console.log('Form not submitted');
+    } else if(validate()){
+        navigate('/payments')
+      console.log('Form submitted');
     }
   };
   const handleMouseEnter =() =>{
@@ -108,18 +108,28 @@ const isValidPhone = (phone) =>{
     }
       if (emailError) {
         return false;
+      }else if(!emailError){
+        return true
       }
       if( pinError){
         return false;
+      }else if(!pinError){
+        return true
       }
       if(panError){
         return false;
+      }else if(!panError){
+        return true
       }
       if(phoneError){
         return false;
+      }else if(!phoneError){
+        return true
       }
       if(selectedError){
         return false;
+      }else if(!selectedError){
+        return true
       }
 }
 
@@ -128,6 +138,7 @@ const isValidPhone = (phone) =>{
 //   const handleMouseLeave=() =>{
 //     setIsExpanded(false);
 //   }
+
 //   window.scrollTo(0,0)
   return (
       <div className="py-2 bg-gray-100 overflow-y-hidden">
@@ -160,31 +171,31 @@ const isValidPhone = (phone) =>{
                     <div className="grid md:grid-cols-2 items-center mt-12">
                         <div className="md:w-72 flex flex-col md:p-6 p-2">
                             <label className="text-xl font-semibold leading-none text-gray-800" >Name</label>
-                            <input tabIndex={0} arial-label="Enter your name" type="name" className="text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-indigo-700 mt-4 bg-purple-100 border rounded border-gray-200 shadow-lg placeholder-gray-500 rounded-xl" placeholder="Please input  name" onChange={(e) => setName(e.target.value)}/>
+                            <input tabIndex={0} arial-label="Enter your name" type="text" name='name' className="text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-indigo-700 mt-4 bg-purple-100 border rounded border-gray-200 shadow-lg placeholder-gray-500 rounded-xl" placeholder="Enter your full name" onChange={(e) => setName(e.target.value)}/>
                         <div style={{ color: 'red' }}>{nameError}</div>
                         </div>
 
                         <div className="md:w-72 flex flex-col md:p-6 p-2">
                             <label className="text-xl font-semibold leading-none text-gray-800">Email Address</label>
-                            <input tabIndex={0} arial-label="Your email address" type="name" className="text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-indigo-700 mt-4 bg-purple-100 border rounded border-gray-200 shadow-lg placeholder-gray-500 rounded-xl" placeholder="Please input email address" onChange={(e) => setEmail(e.target.value)}/>
+                            <input tabIndex={0} arial-label="Your email address" type="email" name='email' className="text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-indigo-700 mt-4 bg-purple-100 border rounded border-gray-200 shadow-lg placeholder-gray-500 rounded-xl" placeholder="Enter your valid email address" onChange={(e) => setEmail(e.target.value)}/>
                            
                         <div style={{ color: 'red' }}>{emailError}</div>
                         </div>
                         <div className="md:w-72 flex flex-col md:p-6 p-2">
                             <label className="text-xl font-semibold leading-none text-gray-800">Pin Code</label>
-                            <input tabIndex={0} role="input" arial-label="enter your PIN code" type="name" className="text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-indigo-700 mt-4 bg-purple-200 border shadow-lg rounded border-gray-200 placeholder-gray-500 rounded-xl" placeholder="Please input company name" maxLength={6} onChange={(e) => setPin(e.target.value)}/>
+                            <input tabIndex={0} role="input" arial-label="enter your PIN code" name='pin' type="number" className="text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-indigo-700 mt-4 bg-purple-200 border shadow-lg rounded border-gray-200 placeholder-gray-500 rounded-xl" placeholder="Enter your 6 digit code" maxLength={6} onChange={(e) => setPin(e.target.value)}/>
                            
                         <div style={{ color: 'red' }}>{pinError}</div>
                         </div>
 
                         <div className="md:w-72 flex flex-col md:p-6 p-2">
                             <label className="text-xl font-semibold leading-none text-gray-800">Pan Number</label>
-                            <input tabIndex={0} arial-label="Please input country name" type="name" className="text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-indigo-700 mt-4 bg-purple-200 border rounded border-gray-200 shadow-lg placeholder-gray-500 rounded-xl" placeholder="Please input country name" onChange={(e) => setPan(e.target.value)} />
+                            <input tabIndex={0} arial-label="Please input country name" type="text" name='pan' className="text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-indigo-700 mt-4 bg-purple-200 border rounded border-gray-200 shadow-lg placeholder-gray-500 rounded-xl" placeholder="Enter your PAN number" onChange={(e) => setPan(e.target.value)} />
                         <div style={{ color: 'red' }}>{panError}</div>
                         </div>
                         <div className="md:w-72 flex flex-col md:p-6 p-2">
                             <label className="text-xl font-semibold leading-none text-gray-800">Phone Number</label>
-                            <input tabIndex={0} arial-label="Please input country name" type="name" className="text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-indigo-700 mt-4 bg-purple-200 border rounded border-gray-200 shadow-lg placeholder-gray-500 rounded-xl" placeholder="Please input country name" onChange={(e) => setPhone(e.target.value)}/>
+                            <input tabIndex={0} arial-label="Please input country name" type="number" name='phone' className="text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-indigo-700 mt-4 bg-purple-200 border rounded border-gray-200 shadow-lg placeholder-gray-500 rounded-xl" placeholder="Enter your 10 digit number" onChange={(e) => setPhone(e.target.value)}/>
                     <div style={{ color: 'red' }}>{phoneError}</div>
                         </div>
                     </div>
@@ -193,31 +204,31 @@ const isValidPhone = (phone) =>{
                         <div className="w-full flex flex-col mt-4 bg-pink-200 p-3 rounded-xl shadow-lg">
                            
                             <span className='mb-3'>
-                            <input type="checkbox" value="option1" checked={selectedOption === 'option1'} onChange={handleOptionChange} />
+                            <input type="checkbox" value="option1" name='selectedOption' checked={selectedOption === 'option1'} onChange={handleOptionChange} />
                             <label htmlFor="salaried" className='text-base font-semibold mx-3 text-gray-700'>Need fresh loan/CC to clear outstandings?</label>
                         </span>
                         <span className='my-3'>
-                            <input type="checkbox" value="option2" checked={selectedOption === 'option2'} onChange={handleOptionChange} />
+                            <input type="checkbox" value="option2" name='selectedOption' checked={selectedOption === 'option2'} onChange={handleOptionChange} />
                             <label htmlFor="salaried" className='text-base font-semibold mx-3 text-gray-700'>Settle the existing loan</label>
                         </span>
                         <span className='my-3'>
-                            <input type="checkbox" value="option3" checked={selectedOption === 'option3'} onChange={handleOptionChange} />
+                            <input type="checkbox" value="option3" name='selectedOption' checked={selectedOption === 'option3'} onChange={handleOptionChange} />
                             <label htmlFor="salaried" className='text-base font-semibold mx-3 text-gray-700'>Pay partial payment of existing account and pay in EMIs</label>
                         </span>
                         <span className='my-3'>
-                            <input type="checkbox" value="option4" checked={selectedOption === 'option4'} onChange={handleOptionChange} />
+                            <input type="checkbox" value="option4" name='selectedOption' checked={selectedOption === 'option4'} onChange={handleOptionChange} />
                             <label htmlFor="salaried" className='text-base font-semibold mx-3 text-gray-700'>Just want to improve the credit score</label>
                         </span>
                         <span className='my-3'>
-                            <input type="checkbox" value="option5" checked={selectedOption === 'option5'} onChange={handleOptionChange} />
+                            <input type="checkbox" value="option5" name='selectedOption' checked={selectedOption === 'option5'} onChange={handleOptionChange} />
                             <label htmlFor="salaried" className='text-base font-semibold mx-3 text-gray-700'>Get rid off the recurring phone calls of recovery</label>
                         </span>
                         <span className='my-3'>
-                            <input type="checkbox" value="option6" checked={selectedOption === 'option6'} onChange={handleOptionChange} />
+                            <input type="checkbox" value="option6" name='selectedOption' checked={selectedOption === 'option6'} onChange={handleOptionChange} />
                             <label htmlFor="salaried" className='text-base font-semibold mx-3 text-gray-700'>Close existing account</label>
                         </span>
                         <span className='mt-3'>
-                            <input type="checkbox" value="option7" checked={selectedOption === 'option7'} onChange={handleOptionChange} />
+                            <input type="checkbox" value="option7" name='selectedOption' checked={selectedOption === 'option7'} onChange={handleOptionChange} />
                             <label htmlFor="salaried" className='text-base font-semibold mx-3 text-gray-700'>Others</label>
                         </span>
                         </div>
@@ -225,64 +236,13 @@ const isValidPhone = (phone) =>{
 
                     </div>
 
-                    {/* <div className='my-8'>
-                            <label className="text-xl font-semibold leading-none text-gray-800 ">Your Query</label>
-
-
-                        <div className="w-full flex flex-col mt-4 bg-pink-200 p-3 rounded-xl shadow-lg">
-                           <span className='mb-3'>
-
-
-                            <input type="checkbox" onChange={handleOptionChange}   value="Need fresh loan/CC to clear outstandings?"  />
-                            <label  className='text-base font-semibold mx-3 text-gray-700'>Need fresh loan/CC to clear outstandings?</label>
-                        </span>
-
-
-                        <span className='my-3'>
-                            <input type="checkbox"  onChange={handleOptionChange}  value="Settle the existing loan" />
-                            <label  className='text-base font-semibold mx-3 text-gray-700'>Settle the existing loan</label>
-                        </span>
-
-
-                        <span className='my-3'>
-                            <input type="checkbox"  onChange={handleOptionChange}  value="Pay partial payment of existing account and pay in EMIs" />
-                            <label  className='text-base font-semibold mx-3 text-gray-700'>Pay partial payment of existing account and pay in EMIs</label>
-                        </span>
-
-
-                        <span className='my-3'>
-                            <input type="checkbox"  onChange={handleOptionChange}  value="Just want to improve the credit score" />
-                            <label  className='text-base font-semibold mx-3 text-gray-700'>Just want to improve the credit score</label>
-                        </span>
-
-
-                        <span className='my-3'>
-                            <input type="checkbox"  onChange={handleOptionChange}  value="Get rid off the recurring phone calls of recovery"/>
-                            <label  className='text-base font-semibold mx-3 text-gray-700'>Get rid off the recurring phone calls of recovery</label>
-                        </span>
-
-
-                        <span className='my-3'>
-                            <input type="checkbox"  onChange={handleOptionChange}  value="Close existing account" />
-                            <label  className='text-base font-semibold mx-3 text-gray-700'>Close existing account</label>
-                        </span>
-
-
-                        <span className='mt-3'>
-                            <input type="checkbox" value="others"   onChange={handleOptionChange} />
-                            <label  className='text-base font-semibold mx-3 text-gray-700'>Others</label>
-                        </span>
-
-
-                        </div>
-                    </div> */}
+                    
                     <p className="text-sm leading-3 text-red-900 mt-8 px-3">By clicking submit you agree to our terms of service & privacy policy.</p>
                     <div className='w-80 text-sm text-gray-900 mt-8 '>
                     <p className= {isExpanded ? 'expand': 'truncate'} onClick={handleMouseEnter} >CreditKlick does not sell any loans on our own and do not charge any fee from any customers/viewers. We advise customers/viewers to choose from best offers from Banks and its advertisers. We do not guarantee any loans as loan sanction is as per Banks and Nbfcs. We suggest all users to never pay any upfront amount for any loan disbursal and if any person who call you as representative of CreditKlick and ask for any amount report the incident immediately via putting us a mail at <a href="mailto:support@creditklick.com" className='text-blue-800'>support@creditklick.com</a></p></div>
                     <div id="button" className={`${show ? "hidden" : "flex"}   my-8 justify-center items-center w-auto`}>
               
-                        <button  className="m-auto text-base font-semibold leading-none text-white py-4 px-10 bg-indigo-500 rounded hover:bg-indigo-700  rounded-full">SUBMIT</button>
-               
+                        <button  className="m-auto text-base font-semibold leading-none text-white py-4 px-10 bg-indigo-500 rounded hover:bg-indigo-700  rounded-full">SUBMIT</button>              
                     </div>
                     </form>
                 </div>
