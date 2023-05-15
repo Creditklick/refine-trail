@@ -1,6 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Exp from "../../assets/Images/expert.gif"
+// import Exp from "../../assets/Images/expert.gif"
+import payment from "../../assets/Images/payment.gif"
+
 import Compare from './Compare'
 import char from "./challanges"
 // import axios from 'axios'
@@ -45,7 +47,7 @@ const Payment = () => {
     <>
     {/* Hero Start */}
 
-<div className="container focus mx-auto h-auto rounded-3xl shadow-lg">
+{/* <div className="container focus mx-auto h-auto rounded-3xl shadow-lg">
       <div className="bg-gradient-to-l  rounded-3xl from-blue-300 to-gray-100 w-auto h-auto border border-1  p-4">
       <div className="md:flex">
        
@@ -68,13 +70,37 @@ const Payment = () => {
       </div>
 
       </div>
-    </div>
+    </div> */}
+<div className=" mx-auto h-auto mt-10 shadow-lg items-center">
+      <div className="bg-gradient-to-l   from-blue-300 to-gray-200 w-auto border border-1 ">
+      <div className="flex md:flex-cols-2 flex-cols-1 justify-end">
+       
+        <div className="p-4 md:w-3/5 m-auto md:space-y-12 space-y-4">
+          <div className="uppercase md:text-2xl text-xl  font-semibold text-blue-400 text-left ">Take advantage of Credit Refine's program to build your score and qualify for the best loan/credit card offers</div>
+          {/* <p className='text-semibold text-lg text-blue-900 my-2 p-2'>We analyse your credit report to understand  the impact of negative accounts on your credit score.
+</p> */}
+<div className="uppercase md:text-2xl text-xl font-semibold text-blue-400 text-left ">Available @ just <span className=" md:text-8xl text-5xl animate-pulse font-bold text-blue-700  "> ₹ 99</span></div>
 
+<Link to="/queries">
+          <div className=' mt-6 mx-auto justify-center'>
+                <button className="bg-blue-400 hover:bg-blue-600 text-white text-xl font-semibold px-4 py-2 rounded-lg uppercase">Pay Now </button>
+            </div>
+            </Link>
+        </div>
+     
+
+        <div className="md:shrink-0 sm:shrink-0 m-auto md:block hidden">
+          <img className="object-cover rounded-xl max-w-xs" src={payment} alt="Modern building architecture"/>
+        </div>
+      </div>
+
+      </div>
+    </div>
 {/* Hero End */}
     
-<div className="bg-gray-50   py-20 flex flex-col items-center justify-center">
-            <div className="xl:w-1/2 space-y-12 w-11/12">
-              <h1  className="text-4xl font-bold  leading-2 text-center text-gray-800">Revolutionize Your Credit Score  <br/> with Our Expert Credit Refinement Service!
+<div className="bg-gray-50 md:py-20 py-6 flex flex-col items-center justify-center">
+            <div className="xl:w-1/2 md:space-y-12 space-y-4 w-11/12">
+              <h1  className="md:text-4xl text-xl font-bold  leading-2 text-center text-gray-800">Revolutionize Your Credit Score  <br/> with Our Expert Credit Refinement Service!
 </h1>
                 <p  className="text-2xl font-bold  leading-2 text-center text-gray-600">
                     What we provides as compare to others
@@ -82,22 +108,22 @@ const Payment = () => {
                 <div className="mt-8  flex-col justify-start items-start">
                   <table class="   table:border lg:w-full   bg-white border-collapse">
                     <tr>
-                    <th class="bg-blue-100 border   py-4">Contents</th>
-                      <th class="bg-blue-100 border   py-4">Creditklick @99 INR</th>
-                      <th class="bg-blue-100 border text-left  py-4">
+                    <th class="bg-blue-100 border  p-3 md:py-1">Contents</th>
+                      <th class="bg-blue-100 border  p-3 md:py-1">Creditklick @99 INR</th>
+                      <th class="bg-blue-100 border text-left p-3 md:py-1">
                         Others @1297 INR
                       </th>
                     </tr>
                     {Compare.map((item) => (
                       <tr key={item}>
-                        <td class="border  text-left px-8 py-4">
+                        <td class="border text-left md:px-8 px-2 py-4">
                           {item.content}
                         </td>
                        
-                        <td class="border  text-left px-8 py-4">
+                        <td class="border  text-center md:px-8 px-2 py-4">
                           {item.CreditKlick}
                         </td>
-                        <td class="border text-left px-8 py-4">
+                        <td class="border text-center md:px-8 px-2 py-4">
                           {item.others}
                         </td>
                       </tr>
