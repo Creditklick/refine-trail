@@ -17,9 +17,9 @@ const [formData, setFormData] = useState({
     selectedError:"",
 });
     var emailRegex =  /^[a-zA-Z0-9_.+-]+@[a-z]+.[a-z]{2,3}$/;
-    var pinRegex = /^[0-9]{6}$/
+    var pinRegex = /^[0-9]{6}$/;
     var panRegex = /^[A-Z]{3}[CPHFATBLJG]{1}[A-Z]{1}[0-9]{4}[A-Z]{1}$/;
-    var phoneRegex = /^[6-9]{1}[0-9]{9}$/
+    var phoneRegex = /^[6-9]{1}[0-9]{9}$/;
 
 const [formErrors, setFormErrors] = useState({});
 
@@ -36,12 +36,16 @@ const validateForm = () =>{
         }
         if (!formData.phone){
             errors.phone = "Phone is required";
+            }else if(formData.phone.length >10){
+                errors.phone = "Please enter 10 digit mobile number"
             }
             else if (!phoneRegex.test(formData.phone)){
                 errors.phone = "Phone is not valid";
                 }
                 if (!formData.pin){
                     errors.pin = "Pin is required";
+                    }else if(formData.pin.length >6){
+                        errors.pin = "Please enter 6 digit PIN"
                     }
                     else if (!pinRegex.test(formData.pin)){
                         errors.pin = "Pin is not valid";
@@ -287,7 +291,7 @@ const handleChange =(e)=>{
                         </div>
                         <div className="md:w-72 flex flex-col md:p-6 p-2">
                             <label className="text-xl font-semibold leading-none text-gray-800">Pin Code</label>
-                            <input tabIndex={0} role="input" arial-label="enter your PIN code" name='pin' type="number" className="text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-indigo-700 mt-4 bg-purple-200 border shadow-lg rounded border-gray-200 placeholder-gray-500 rounded-xl" placeholder="Enter your 6 digit code" maxLength={6} onChange={handleChange}/>
+                            <input tabIndex={0} role="input" arial-label="enter your PIN code" name='pin' type="number" className="text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-indigo-700 mt-4 bg-purple-200 border shadow-lg rounded border-gray-200 placeholder-gray-500 rounded-xl" placeholder="Enter your 6 digit code" onChange={handleChange}/>
                            
                         <div style={{ color: 'red' }}>{formErrors.pin}</div>
                         </div>
