@@ -35,7 +35,7 @@ const Main = () => {
 
  
   <Route path="/payments" exact element={<Payment/>}/>
-  <Route path="/confirmination" exact element={<Confirm/>}/>
+  <Route path="/confirmation" exact element={<Confirm/>}/>
   <Route path="/updatehome" exact element={<Updatehome/>}/>
   <Route path="/update/:id" exact element={<Update/>}/>
   <Route path="/otp" exact element={<OTP/>}/>
