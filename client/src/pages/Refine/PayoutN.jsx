@@ -70,7 +70,7 @@ const HandleSubmit= (e) =>{
 
     e.preventDefault();
     if ( validateForm()){
-        navigate('/otp')
+        navigate('/payments')
         console.log('form submitted');
     }
     else{
