@@ -14,6 +14,7 @@ import Confirm from './pages/Refine/Confirm';
 import Updatehome from './pages/Update/Updatehome';
 import Update from './pages/Update/Update';
 import PayoutN from './pages/Refine/PayoutN';
+import OTP from './pages/Refine/OTP';
 const Main = () => {
   
   return (
@@ -37,6 +38,8 @@ const Main = () => {
   <Route path="/confirmination" exact element={<Confirm/>}/>
   <Route path="/updatehome" exact element={<Updatehome/>}/>
   <Route path="/update/:id" exact element={<Update/>}/>
+  <Route path="/otp" exact element={<OTP/>}/>
+
 </Routes>
 {/* <Footer/> */}
 </BrowserRouter>

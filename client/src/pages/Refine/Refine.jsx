@@ -39,7 +39,7 @@ window.scrollBy(0,0)
 </p>
 <div className="uppercase text-3xl  font-semibold text-indigo-900 text-left ">Talk to an <span className='text-red-500'>Expert </span> </div>
 
-<Link to="/queries">
+<Link to="/queriesN">
           <div className=' mt-6 mx-auto justify-center'>
                 <button className="bg-blue-400 hover:bg-blue-600 text-white font-semibold px-4 py-2 rounded-2xl uppercase">Connect Now</button>
             </div>

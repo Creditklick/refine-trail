@@ -70,7 +70,7 @@ const HandleSubmit= (e) =>{
 
     e.preventDefault();
     if ( validateForm()){
-        navigate('/payments')
+        navigate('/confirmination')
         console.log('form submitted');
     }
     else{

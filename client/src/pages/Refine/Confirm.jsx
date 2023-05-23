@@ -10,7 +10,7 @@ const Confirm = () => {
         <div className="grid grid-cols-1  justify-center mx-auto">
         <p className="md:text-5xl text-3xl text-green-800  text-center"> CONGRATULATIONS</p>
         <img src={success} alt="" className='m-auto md:w-1/5 w-2/5 transition duration-0'/>
-        <p className='md:text-4xl text=2xl text-green-900 uppercase text-center'>Your Payment is successful</p>
+        <p className='md:text-4xl text=2xl text-green-900 uppercase text-center'>Your form has been submitted</p>
         </div>
 
         <div className="my-2 md:w-3/5 mx-auto p-2">
@@ -69,10 +69,10 @@ const Confirm = () => {
 </div>
         </div> 
  <p className='text-xl font-semibold text-blue-500 text-center my-5 uppercase'>Explore CreditKlick</p>
-        <Link to="/">    
+        <a href='https://www.creditklick.com/Creditklick/personalloan' target='_blank'>    
                      <button class="bg-blue-400 hover:bg-blue-600 items-center my-2 mx-auto  text-white font-semibold flex mx-auto py-2 px-4 rounded-2xl w-auto">
     CHECK NOW
-  </button></Link> 
+  </button></a> 
     </>
   )
 }
