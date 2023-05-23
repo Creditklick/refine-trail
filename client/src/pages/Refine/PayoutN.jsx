@@ -9,7 +9,8 @@ const PayoutN = () => {
 
  
 const [formData, setFormData] = useState({
-    name:"",
+    firstName:"",
+   lastName:"", 
     email:"",
     phone:"",
     pin:"",
@@ -25,7 +26,7 @@ const [formErrors, setFormErrors] = useState({});
 
 const validateForm = () =>{
     let errors ={};
-    if (!formData.name){
+    if (!formData.firstName){
         errors.name = "Name is required";
     }
     if (!formData.email){
@@ -70,8 +71,9 @@ const HandleSubmit= (e) =>{
 
     e.preventDefault();
     if ( validateForm()){
-        navigate('/payments')
+        navigate('/confirmation')
         console.log('form submitted');
+        console.log(formData);
     }
     else{
         console.log('form not submitted');
@@ -99,155 +101,6 @@ const handleChange =(e)=>{
   const handleMouseEnter =() =>{
     setIsExpanded(true);
   }
-// const handleSubmit = (e) => {
-//     e.preventDefault();
-//     if (!validate()) {
-//       console.log('Form not submitted');
-//     } else if(validate()){
-//         navigate('/payments')
-//       console.log('Form submitted');
-//     }
-//   };
-
-//   const isValidEmail = (email) => {
-//     var emailRegex =  /^[a-zA-Z0-9_.+-]+@[a-z]+.[a-z]{2,3}$/;
-//     return emailRegex.test(email);
-//   };
-
-//   const isValidPin = (pin) => {
-//     var pinRegex = /^[0-9]{6}$/
-//     return pinRegex.test(pin);
-//   }
-
-// const isValidPan = (pan) =>{
-//     var panRegex = /^[A-Z]{3}[CPHFATBLJG]{1}[A-Z]{1}[0-9]{4}[A-Z]{1}$/;
-//     return panRegex.test(pan);
-// }
-// const isValidPhone = (phone) =>{
-//     var phoneRegex = /^[6-9]{1}[0-9]{9}$/
-//     return phoneRegex.test(phone);
-// }
-
-//   const validate = () =>{
-//     let emailError = '';
-//     let pinError = '';
-//     let panError = '';
-//     let phoneError = '';
-//     let nameError = '';
-//     let selectedError = '';
-
-
-
-//     if(!name){
-//         nameError = 'Please enter your full name'
-//     }
-//     if (!email){
-//         emailError = 'Email is required';
-//       }else if(!isValidEmail(email)){
-//         emailError = 'Please enter valid email address'
-//       }
-//     if(!pin){
-//         pinError = 'Pin required';
-//     }else if(!isValidPin(pin)){
-//         pinError = 'Please enter correct PIN'
-//     }
-//     if(!pan){
-//         panError = 'PAN required'
-//     }else if(!isValidPan(pan)){
-//         panError = 'Please enter correct PAN'
-//     }
-//     if(!phone){
-//         phoneError = 'Phone number required'
-//     }else if(!isValidPhone(phone)){
-//         phoneError= 'Please enter correct phone number'
-//     }
-//     if(!selectedOption){
-//         selectedError= 'Please select your Query'
-//     }
-
-
-//     setNameError(nameError);
-//     setEmailError(emailError);
-//     setPinError(pinError);
-//     setPanError(panError);
-//     setPhoneError(phoneError);
-//     setSelectedError(selectedError)
-
-//     switch (nameError, emailError, pinError, panError, phoneError,selectedError)
-//     {
-//       case 1:
-//         if(nameError){
-//         return false; 
-//       }
-//       break;
-//         case 2:
-//           if (emailError) {
-//             return false;
-//           }
-//         break;
-//         case 3:
-//           if( pinError){
-//             return false;
-//           }
-          
-//           break;
-//           case 4:
-//             if(panError){
-//               return false;
-//             }
-            
-//             break;
-//             case 5:
-//               if(phoneError){
-//                 return false;
-//               }
-              
-//               break;
-//               case 6:
-//                 if(selectedError){
-//                   return false;
-//                 }
-                
-//                 break;
-// default:
-//    break;
-            
-
-//     }
-    // if(nameError){
-    //     return false;
-    // }
-    //   if (emailError) {
-    //     return false;
-    //   }else if(!emailError){
-    //     return true
-    //   }
-    //   if( pinError){
-    //     return false;
-    //   }else if(!pinError){
-    //     return true
-    //   }
-    //   if(panError){
-    //     return false;
-    //   }else if(!panError){
-    //     return true
-    //   }
-    //   if(phoneError){
-    //     return false;
-    //   }else if(!phoneError){
-    //     return true
-    //   }
-    //   if(selectedError){
-    //     return false;
-    //   }else if(!selectedError){
-    //     return true
-    //   }
- 
-//   const handleMouseLeave=() =>{
-//     setIsExpanded(false);
-//   }
-
-//   window.scrollTo(0,0)
   return (
       <div className="py-2 bg-gray-100 overflow-y-hidden">
           {/* Code block starts */}
@@ -278,8 +131,13 @@ const handleChange =(e)=>{
                     <form onSubmit={HandleSubmit}>
                     <div className="grid md:grid-cols-2 items-center mt-12">
                         <div className="md:w-72 flex flex-col md:p-6 p-2">
-                            <label className="text-xl font-semibold leading-none text-gray-800" >Name</label>
-                            <input tabIndex={0} arial-label="Enter your name" type="text" name='name' className="text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-indigo-700 mt-4 bg-purple-100 border rounded border-gray-200 shadow-lg placeholder-gray-500 rounded-xl" placeholder="Enter your full name" onChange={handleChange}/>
+                            <label className="text-xl font-semibold leading-none text-gray-800" >First Name</label>
+                            <input tabIndex={0} arial-label="Enter your name" type="text" name='firstName' className="text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-indigo-700 mt-4 bg-purple-100 border rounded border-gray-200 shadow-lg placeholder-gray-500 rounded-xl" placeholder="Enter your full name" onChange={handleChange}/>
+                        <div style={{ color: 'red' }}>{formErrors.name}</div>
+                        </div>
+                        <div className="md:w-72 flex flex-col md:p-6 p-2">
+                            <label className="text-xl font-semibold leading-none text-gray-800" >Last Name</label>
+                            <input tabIndex={0} arial-label="Enter your name" type="text" name='lastName' className="text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-indigo-700 mt-4 bg-purple-100 border rounded border-gray-200 shadow-lg placeholder-gray-500 rounded-xl" placeholder="Enter your full name" onChange={handleChange}/>
                         <div style={{ color: 'red' }}>{formErrors.name}</div>
                         </div>
 
