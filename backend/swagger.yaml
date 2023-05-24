@@ -1,0 +1,63 @@
+openapi: 3.0.0
+info:
+  title: Refine API
+  description: Refine API Docs
+  version: 1.0.0
+
+servers:
+  - url: http://localhost:8801
+    description: Local development server
+
+paths:
+  /refine:
+    post:
+      summary: create a new record
+      requestBody:
+        description: refine
+        content:
+          application/json:
+            schema:
+                type: object
+                properties:
+                  firstName:
+                    type: string
+                  lastName:
+                    type: string
+                  email:
+                    type: string
+                  pan:
+                    type: string
+                  pincode:
+                    type: integer
+                  query:
+                    type: string
+                  phone: 
+                    type: string
+      responses:
+        '200':
+          description: a json object
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  firstName:
+                    type: string
+                  lastName:
+                    type: string
+                  email:
+                    type: string
+                  pan:
+                    type: string
+                  pincode:
+                    type: integer
+                  query:
+                    type: string
+                  phone: 
+                    type: string
+                  createdAt:
+                    type: string
+                  updatedAt:
+                    type: string

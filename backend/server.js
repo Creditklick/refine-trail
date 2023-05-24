@@ -7,6 +7,8 @@ const app = express();
 
 const dotenv = require("dotenv");
 const refineRoutes = require("./routes/refine");
+const swaggerRoute = require('./routes/swagger')
+
 const dbConfig = require("./util/dbconfig");
 dotenv.config();
 const config = require("./config/config");
@@ -14,6 +16,7 @@ console.log(config);
 console.log(process.env);
 app.use(express.json());
 app.use(cors());
+app.use(swaggerRoute)
 app.use(refineRoutes);
 // // const orders=(req,res)=>{
 // // let instance=new Razorpay({key_id:KEY_ID,key_secret:KEY_SECRET})
