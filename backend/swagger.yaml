@@ -61,3 +61,34 @@ paths:
                     type: string
                   updatedAt:
                     type: string
+  /leads:
+    get:
+      summary: Get all leads
+      responses:
+        '200':
+          description: a json object
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  firstName:
+                    type: string
+                  lastName:
+                    type: string
+                  email:
+                    type: string
+                  pan:
+                    type: string
+                  pincode:
+                    type: integer
+                  query:
+                    type: string
+                  phone: 
+                    type: string
+                  createdAt:
+                    type: string
+                  updatedAt:
+                    type: string
