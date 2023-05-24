@@ -1,14 +1,12 @@
-import "tailwindcss/dist/tailwind.min.css"
+import "tailwindcss/dist/tailwind.min.css";
 import Main from "./Main";
-import './index.css'
+import "./index.css";
 function App() {
   return (
-<>
-<Main/>
-</>  
-
+    <>
+      <Main />
+    </>
   );
 }
-
 
 export default App;
